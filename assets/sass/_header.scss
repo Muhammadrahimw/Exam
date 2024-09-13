@@ -1,0 +1,261 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+
+// nav
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1em;
+  #check {
+    display: none;
+    &:checked ~ .links {
+      left: 0;
+    }
+  }
+  .links {
+    @include mix.flex-center(_, center, 2.5em);
+    padding-top: 1em;
+    a {
+      color: vars.$black-color;
+      position: relative;
+      &:hover {
+        color: vars.$black-color;
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 2.5px;
+        background-color: vars.$black-color;
+        position: absolute;
+        bottom: -5px;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: 0.2s transform;
+      }
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+    #xmark {
+      display: none;
+    }
+  }
+  #bars {
+    padding-top: 1.2em;
+    display: none;
+  }
+  #bars_second {
+    display: none;
+  }
+}
+
+// nav
+
+// showcase
+
+.showcase {
+  @include mix.flex-center(space-between);
+  margin-top: 4em;
+  .showcase_txt {
+    h1 {
+      font-size: 3.25em;
+      font-weight: 600;
+    }
+    p {
+      margin-top: 2em;
+    }
+    a {
+      display: inline-block;
+      font-size: 1em;
+      font-weight: 700;
+      margin-top: 2.5em;
+      color: vars.$black-color;
+      position: relative;
+      &:hover {
+        color: black;
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 3px;
+        background-color: rgba(255, 206, 80, 1);
+        position: absolute;
+        bottom: -5px;
+        transform: scaleX(0);
+        transform-origin: left;
+        z-index: 50;
+        transition: 0.2s;
+      }
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
+  }
+  .showcase_txt:nth-of-type(2),
+  .showcase_txt:nth-of-type(3) {
+    display: none;
+  }
+}
+
+// showcase
+
+// media nav
+
+@media (max-width: 830px) {
+  nav {
+    .logo {
+      img {
+        width: 80%;
+        transition: 0.4s;
+      }
+    }
+    .links {
+      #xmark {
+        display: block;
+      }
+      position: fixed;
+      top: 0;
+      left: -100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3em;
+      width: 100%;
+      height: 100vh;
+      backdrop-filter: blur(20px);
+      z-index: 100;
+      transition: 0.3s;
+    }
+    #bars {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  nav {
+    .logo {
+      img {
+        width: 55%;
+        transition: 0.4s;
+      }
+    }
+    #bars {
+      display: none;
+    }
+    #bars_second {
+      display: block;
+      padding-top: 0.75em;
+    }
+  }
+}
+
+// media nav
+
+// media showcase
+
+@media (max-width: 1370px) {
+  .showcase {
+    .showcase_txt {
+      font-size: 14px;
+      transition: 0.4s;
+    }
+    .showcase_img {
+      display: flex;
+      justify-content: flex-end;
+      img {
+        width: 500px;
+        transition: 0.4s;
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .showcase {
+    .showcase_txt {
+      font-size: 12px;
+    }
+    .showcase_img {
+      img {
+        width: 400px;
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .showcase {
+    .showcase_txt {
+      font-size: 11px;
+    }
+    .showcase_img {
+      img {
+        width: 340px;
+      }
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .showcase {
+    flex-wrap: wrap;
+    gap: 4.5em;
+    .showcase_txt {
+      display: none;
+    }
+    .showcase_txt:nth-of-type(2) {
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      text-align: center;
+    }
+    .showcase_img {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .showcase {
+    font-size: 10px;
+    .showcase_txt:nth-of-type(2) {
+      font-size: 10px;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .showcase {
+    .showcase_txt:nth-of-type(2) {
+      display: none;
+    }
+    .showcase_txt:nth-of-type(3) {
+      h1 {
+        font-size: 2em;
+      }
+      display: block;
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .showcase {
+    font-size: 12px;
+    .showcase_txt:nth-of-type(3) {
+      font-size: 12px;
+    }
+  }
+}
+
+// media showcase

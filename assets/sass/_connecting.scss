@@ -1,0 +1,72 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+
+.connecting {
+  margin-top: 7em;
+  .connect_form {
+    margin-top: 5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .connect_form-left {
+      @include mix.flex-center;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 2em;
+      .connect_form-left-we {
+        @include mix.flex-center(flex-start);
+        gap: 2em;
+        div {
+          a {
+            color: vars.$black-color;
+          }
+        }
+      }
+    }
+    .connect_form-right {
+      background-color: rgba(249, 249, 251, 1);
+      padding: 3em;
+      border-radius: 5px;
+      width: 50%;
+      .connect_form-right-txt {
+        @include mix.flex-center;
+        justify-content: flex-start;
+        gap: 5em;
+        padding: 0.75em 0;
+      }
+    }
+  }
+}
+
+// media
+
+@media (max-width: 830px) {
+  .connecting {
+    .connect_form {
+      flex-wrap: wrap;
+      gap: 3em;
+      .connect_form-left {
+        width: 100%;
+      }
+      .connect_form-right {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .connecting {
+    .connect_head {
+      font-size: 12px;
+    }
+    .connect_form {
+      .connect_form-left {
+        font-size: 12px;
+      }
+      .connect_form-right {
+        font-size: 12px;
+      }
+    }
+  }
+}

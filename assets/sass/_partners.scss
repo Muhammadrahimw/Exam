@@ -1,0 +1,50 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+
+.partners {
+  margin-top: 6.5em;
+  .partner_body {
+    @include mix.flex-center(space-between);
+    flex-direction: column;
+    .partner_body-card {
+      margin-top: 5em;
+      border-right: 1px solid rgba(128, 128, 128, 0.257);
+      text-align: center;
+      padding: 1em 4.5em;
+      height: 100%;
+      .partner_logo {
+        @include mix.flex-center;
+      }
+      p {
+        &:nth-last-of-type(2) {
+          margin-top: 2em;
+        }
+        &:nth-last-of-type(1) {
+          margin-top: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+// media
+
+@media (max-width: 500px) {
+  .partners {
+    .partner_head {
+      font-size: 11px;
+      transition: 0.4s;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .partners {
+    .partner_body {
+      .partner_body-card {
+        font-size: 14px;
+        transition: 0.4s;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@mixin flex-center($content: center, $item: center, $gap: 0) {
+  display: flex;
+  justify-content: $content;
+  align-items: $item;
+  gap: $gap;
+}
+
+// @mixin grid($template_col, $col: 1, $row: 1, $gap: 0) {
+//   display: grid;
+//   grid-template-columns: $template_col;
+//   grid-column: $col;
+//   grid-row: $row;
+//   gap: $gap;
+// }
+
+@mixin main-shadow() {
+  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+}

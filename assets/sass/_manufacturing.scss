@@ -1,0 +1,164 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+
+.Manufacturing {
+  margin-top: 1.25em;
+  border-radius: 20px;
+  padding: 2.5em 0;
+  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  .manufacture_card {
+    padding: 0 5em;
+    &:hover {
+      scale: 1.06;
+      transition: 0.2s;
+    }
+    .manufacture_card-txt {
+      h2 {
+        margin-top: 1.5em;
+      }
+      p {
+        margin-top: 1em;
+      }
+    }
+    .manufacture_card-txt:nth-last-of-type(1) {
+      display: none;
+    }
+  }
+  .manufacture_card:nth-child(2),
+  .manufacture_card:nth-child(3) {
+    border-left: 2px solid rgba(128, 128, 128, 0.194);
+  }
+}
+
+// media
+
+@media (max-width: 1284px) {
+  .Manufacturing {
+    font-size: 14px;
+    transition: 0.4s;
+    .manufacture_card {
+      font-size: 14px;
+      transition: 0.4s;
+    }
+  }
+}
+
+@media (max-width: 1125px) {
+  .Manufacturing {
+    font-size: 12px;
+    .manufacture_card {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 970px) {
+  .Manufacturing {
+    font-size: 10px;
+    .manufacture_card {
+      font-size: 10px;
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .Manufacturing {
+    font-size: 16px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1em;
+    box-shadow: none;
+    .manufacture_card {
+      font-size: 16px;
+      padding: 2em;
+      padding-right: 7em;
+      box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+      border-radius: 20px;
+      @include mix.flex-center(flex-start, _, 2em);
+      .manufacture_card-txt {
+        display: none;
+        h2 {
+          margin: 0;
+        }
+      }
+      .manufacture_card-txt:nth-last-of-type(1) {
+        display: block;
+      }
+    }
+    .manufacture_card:nth-child(2),
+    .manufacture_card:nth-child(3) {
+      border: none;
+    }
+  }
+}
+
+@media (max-width: 655px) {
+  .Manufacturing {
+    .manufacture_card {
+      padding-right: 3em;
+    }
+  }
+}
+
+@media (max-width: 585px) {
+  .Manufacturing {
+    .manufacture_card {
+      padding-right: 3em;
+      font-size: 14px;
+      div:nth-child(1) {
+        img {
+          width: 73px;
+          transition: 0.4s;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 505px) {
+  .Manufacturing {
+    .manufacture_card {
+      font-size: 12px;
+      div:nth-child(1) {
+        img {
+          width: 62px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .Manufacturing {
+    box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+    padding: 0;
+    gap: 0;
+    margin-top: 3.5em;
+    .manufacture_card {
+      font-size: 16px;
+      box-shadow: none;
+      flex-direction: column;
+      padding: 1.5em 2em;
+      gap: 1em;
+      div:nth-child(1) {
+        img {
+          width: 92px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .Manufacturing {
+    .manufacture_card {
+      font-size: 12px;
+      div:nth-child(1) {
+        img {
+          width: 62px;
+        }
+      }
+    }
+  }
+}
